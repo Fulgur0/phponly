@@ -5,26 +5,31 @@ namespace sys\core;
 class Route
 {
     public string $path;
-    public string $content;
     public string $method;
+    public string $controller;
+    public string $function;
 
-    public function get($path, $content)
+    public function get($path, $controller, $function)
     {
         $this->path = $path;
-        $this->content = $content;
+        $this->controller = $controller;
         $this->method = 'GET';
-        if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_SERVER['REQUEST_URI'] == $this->path) {
-            echo $this->content;
-        }
+        $this->function = $function;
+        $this->execute();
     }
 
-    public function post($path, $content)
+    public function post($path, $controller, $function)
     {
         $this->path = $path;
-        $this->content = $content;
+        $this->controller = $controller;
         $this->method = 'POST';
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_SERVER['REQUEST_URI'] == $this->path) {
-            echo $this->content;
-        }
+        $this->function = $function;
+        $this->execute();
+    }
+
+    public function execute()
+    {
+        $controller = new $this->controller;
+        $controller->{$this->function}();
     }
 }

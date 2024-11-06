@@ -1,7 +1,8 @@
 <?php
 
+use controller\Home;
 use sys\core\Route;
 
 $route = new Route();
 
-$route->get('/', 'Hello world!');
+$route->get('/', Home::class, 'index');
