@@ -1,0 +1,29 @@
+<?php
+
+if ($argc < 2) {
+    echo "Usage: php only <command>\n";
+    exit(1);
+}
+
+$cmd = $argv[1];
+
+if ($cmd == "create") {
+    if ($argc != 4) {
+        echo "Usage: php only create <type> <name>\n";
+        exit(1);
+    }
+
+    $type = $argv[2];
+    $name = $argv[3];
+    if ($type == 'controller') {
+        $file = fopen("controller/" . $name . ".php", "w");
+        $txt = "<?php\n\nnamespace controller;\n\nuse model\\" . $name . "Model;\nuse sys\\core\\Controller;\n\nclass Home extends Controller\n{\n\n}";
+        fwrite($file, $txt);
+        fclose($file);
+    } elseif ($type == 'model') {
+        $file = fopen("model/" . $name . "Model.php", "w");
+        $txt = "<?php\n\nnamespace model;\n\nuse sys\\core\\Model;\n\nclass " . $name . "Model extends Model\n{\n\n}";
+        fwrite($file, $txt);
+        fclose($file);
+    }
+}
