@@ -79,7 +79,7 @@ class Model
         if ($result)
             return $result;
         else
-            return 'Error at CJ_MODEL/update';
+            return 'Error at MODEL/update';
     }
 
     public function delete($tableName, $whereArgs)
@@ -94,7 +94,7 @@ class Model
         if ($result)
             return $result;
         else
-            return 'Error at CJ_MODEL/delete';
+            return 'Error at MODEL/delete';
     }
 
     public function where($sql, $whereArgs)

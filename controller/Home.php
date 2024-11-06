@@ -12,6 +12,6 @@ class Home extends Controller
     {
         $config = new Config();
         $user = new UserModel();
-        echo 'Hello world!<br>' . json_encode($config->get('database') . json_encode($user->get(1)));
+        echo 'Hello world ' . json_encode($user->get(1)[0]['username']);
     }
 }
