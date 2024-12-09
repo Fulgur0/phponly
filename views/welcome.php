@@ -35,7 +35,7 @@
 
 <body>
     <div class="welcome-container">
-        <h1>Welcome!</h1>
+        <h1>Welcome to <?php echo $_ENV['APP_NAME'] ?>!</h1>
         <p>We're glad to have you here.</p>
     </div>
 </body>

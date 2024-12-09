@@ -1,8 +1,16 @@
 {
     "packages": [
         {
-            "url": "https:\/\/github.com\/Fulgur0\/Onlyoption.git",
-            "name": "Fulgur0\/Onlyoption"
+            "url": "https:\/\/github.com\/Phponly\/Onlyoption.git",
+            "name": "Phponly\/Onlyoption"
+        },
+        {
+            "url": "https:\/\/github.com\/Phponly\/Onlydotenv.git",
+            "name": "Phponly\/Onlydotenv"
+        },
+        {
+            "url": "https:\/\/github.com\/Phponly\/ResultType.git",
+            "name": "Phponly\/ResultType"
         }
     ]
 }

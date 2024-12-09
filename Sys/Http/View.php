@@ -4,8 +4,9 @@ namespace Sys\Http;
 
 class View
 {
-    public static function render($view)
+    public static function render($view, $variables = [])
     {
-        echo file_get_contents('../views/' . $view . '.php');
+        extract($variables);
+        include '../views/' . $view . '.php';
     }
 }

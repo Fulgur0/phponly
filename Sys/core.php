@@ -2,6 +2,10 @@
 
 use Sys\Http\Request;
 use Sys\Http\View;
+use Phponly\Onlydotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
 
 $request = new Request();
 $request->uri = $_SERVER['REQUEST_URI'];
