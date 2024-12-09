@@ -6,7 +6,7 @@ if ($argc < 2) {
 }
 
 $command = $argv[1];
-if ($command == 'i' || $command == 'install') {
+if ($command == 'i' || $command == 'install' || $command == 'setup') {
     $only = file_get_contents('only.json');
     $only = json_decode($only, true);
     $packages = $only['packages'];
@@ -31,4 +31,10 @@ if ($command == 'i' || $command == 'install') {
     ];
     $only['packages'] = $packages;
     file_put_contents('only.json', json_encode($only, JSON_PRETTY_PRINT));
+}
+
+if ($command == 'setup') {
+    if (!file_exists('.env')) {
+        copy('.env.example', '.env');
+    }
 }
